@@ -1,0 +1,497 @@
+/* 
+    Programmer's Journey - Master Stylesheet
+    تنسيق شامل لمنصة رحلة مبرمج التعليمية
+*/
+
+:root {
+    --primary-color: #0284c7;
+    --primary-hover: #0369a1;
+    --bg-dark: #020617;
+    --bg-card: #1e293b;
+    --bg-glass: rgba(30, 41, 59, 0.5);
+    --text-white: #ffffff;
+    --text-muted: #94a3b8;
+    --gold: #fbbf24;
+    --success: #10b981;
+    --danger: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    direction: rtl;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+nav {
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 700;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-color);
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    transition: 0.5s;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+.btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.4s;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
+    text-align: center;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.4);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 25px;
+    width: 300px;
+    transition: 0.4s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    background: var(--bg-card);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.card i {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #020617;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 80px;
+}
+
+/* Home CSS */
+.btn-main {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    padding: 15px 45px;
+    font-size: 18px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 900;
+}
+.btn-main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(2, 132, 199, 0.5);
+    background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+}
+
+.hero {
+    background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
+    position: relative;
+    padding: 150px 20px;
+    text-align: center;
+}
+.hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(2, 6, 23, 0.85);
+}
+.hero-content { position: relative; z-index: 2; animation: zoomIn 1s; }
+
+.section-box { padding: 80px 20px; text-align: center; }
+.section-title { font-size: 35px; color: #7dd3fc; margin-bottom: 50px; font-weight: 900; }
+
+.feature-card {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 25px;
+    border-radius: 25px;
+    width: 280px;
+    transition: 0.4s;
+    position: relative;
+}
+.feature-card i { font-size: 45px; color: #0284c7; margin-bottom: 20px; }
+.feature-card:hover { border-color: #0284c7; background: #1e293b; transform: translateY(-15px); }
+
+.roadmap-line {
+    display: flex; justify-content: space-around; align-items: center;
+    max-width: 1000px; margin: 0 auto; position: relative; flex-wrap: wrap;
+}
+.roadmap-step { background: #020617; padding: 25px; border-radius: 20px; border: 2px solid #334155; width: 180px; }
+.roadmap-step.active { border-color: #0284c7; box-shadow: 0 0 20px rgba(2, 132, 199, 0.3); }
+
+@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+
+/* ----- Additional CSS ----- */
+/* --- quiz.css --- */
+.quiz-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input#studentName {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.question {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fafafa;
+}
+
+.question p {
+    margin: 0 0 10px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-left: 10px;
+}
+
+#submitQuiz {
+    background: #0F0F10;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submitQuiz:hover {
+    background: #333;
+}
+
+#quizResult {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn.back-btn {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* --- certificate.css --- */
+/* الحاوية */
+.certificate-container {
+    padding: 20px;
+}
+
+/* الشهادة */
+.certificate {
+    width: 900px;
+
+    /* 🔥 الخلفية الأساسية */
+    /* background: url("certificate-bg.jpg") no-repeat center; */
+
+    /* لو معندكش صورة، امسح السطر اللي فوق وخلي ده */
+    background: linear-gradient(135deg, #fff7e6, #ffe6f0);
+
+    background-size: cover;
+
+    padding: 60px;
+    text-align: center;
+    border: 12px solid #333;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    position: relative;
+    color: #222;
+}
+
+/* طبقة شفافة فوق الخلفية */
+.certificate::before {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(255,255,255,0.75);
+    border-radius: 15px;
+    z-index: 0;
+}
+
+/* نخلي المحتوى فوق الطبقة */
+.certificate * {
+    position: relative;
+    z-index: 1;
+}
+
+/* اللوجو */
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+/* العنوان */
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #111;
+    letter-spacing: 2px;
+}
+
+/* اسم الكورس */
+h2 {
+    font-size: 30px;
+    margin: 20px 0;
+    color: #000;
+}
+
+/* النص */
+.cert-text {
+    font-size: 22px;
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+/* اسم المنصة */
+.platform {
+    font-weight: bold;
+    color: #000;
+}
+
+/* الفوتر */
+.footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+/* --- student-courses.css --- */
+
+/* ===== Courses Grid ===== */
+.courses-grid-student{
+  display:flex;
+  flex-wrap:wrap;
+  gap:25px;
+  justify-content:center;
+  margin-bottom:40px;
+}
+
+/* ===== Course Card ===== */
+.course-card-student{
+  background-color:#2c2c2c;
+  width:280px;
+  border-radius:15px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.3);
+  overflow:hidden;
+  transition: transform 0.4s, box-shadow 0.4s;
+  opacity:0;
+  transform: translateY(20px);
+  animation: cardFadeUp 0.6s forwards;
+}
+
+.course-card-student:nth-child(1){animation-delay:0.1s;}
+.course-card-student:nth-child(2){animation-delay:0.2s;}
+.course-card-student:nth-child(3){animation-delay:0.3s;}
+.course-card-student:nth-child(4){animation-delay:0.4s;}
+.course-card-student:nth-child(5){animation-delay:0.5s;}
+.course-card-student:nth-child(6){animation-delay:0.6s;}
+.course-card-student:nth-child(7){animation-delay:0.7s;}
+
+.course-card-student:hover{
+  transform: translateY(-8px) scale(1.03);
+  box-shadow:0 12px 30px rgba(0,0,0,0.4);
+}
+
+.course-card-student img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  transition: transform 0.3s;
+}
+
+.course-card-student:hover img{
+  transform: scale(1.05);
+}
+
+.course-info-student{
+  padding:15px;
+}
+
+.course-info-student h3{
+  font-size:20px;
+  margin-bottom:8px;
+  color:#38bdf8;
+}
+
+.course-info-student p{
+  font-size:14px;
+  margin-bottom:12px;
+  color:#cbd5f5;
+  min-height:50px;
+}
+
+/* ===== Button ===== */
+.student-btn{
+  padding:8px 14px;
+  font-size:14px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  background-color:#38bdf8;
+  color:#000;
+  font-weight:bold;
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.student-btn::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.2);
+  transform: skewX(-25deg);
+  transition:0.5s;
+}
+
+.student-btn:hover::after{
+  left:200%;
+}
+
+.student-btn:hover{
+  background-color:#22c55e;
+  transform:translateY(-2px);
+}
+
+/* ===== Animations ===== */
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+@keyframes cardFadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  .courses-grid-student{
+    justify-content:center;
+  }
+}
+
+@media(max-width:600px){
+  .course-card-student{
+    width:90%;
+  }
+}
+
+
+/* --- Auth injected CSS --- */
+.nav-links { display: flex; align-items: center; gap: 15px; }
+.user-pill { 
+    background: #1e293b; padding: 6px 18px; border-radius: 50px; 
+    border: 1px solid #334155; color: white !important; display: flex; gap: 10px;
+}
+.xp-text { color: #fbbf24; font-weight: 900; }
+.admin-link { color: #ef4444 !important; font-weight: bold; border: 1px solid #ef4444; padding: 5px 12px; border-radius: 10px; }
+.login-btn-nav { color: #7dd3fc !important; }
+.register-btn-nav { background: #0284c7; color: white !important; padding: 8px 18px !important; border-radius: 50px; }
+.logout-link { color: #94a3b8 !important; font-size: 13px; margin-right: 15px; }
+.animate-spin-slow { animation: spin 8s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
